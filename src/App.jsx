@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { PROJECTS, frameSrc } from './data.js'
+import { PROJECTS, HERO_IMAGES, frameSrc } from './data.js'
 import Preloader from './components/Preloader.jsx'
 import Header from './components/Header.jsx'
 import Menu from './components/Menu.jsx'
@@ -19,14 +19,18 @@ export default function App() {
 
   // Card thumbnails and hero frames are drawn once.
   const thumbs = useMemo(() => PROJECTS.map((p) => frameSrc(p, 0, 640, 800)), [])
-  const heroSrcs = useMemo(
-    () => [
+  const heroSrcs = useMemo(() => {
+    const defaults = [
       frameSrc(PROJECTS[0], 0, 1600, 900),
       frameSrc(PROJECTS[3], 1, 1600, 900),
       frameSrc(PROJECTS[1], 2, 1600, 900),
-    ],
-    []
-  )
+    ]
+    if (HERO_IMAGES && HERO_IMAGES.length > 0) {
+      if (HERO_IMAGES.length >= defaults.length) return HERO_IMAGES
+      return defaults.map((def, i) => HERO_IMAGES[i] || def)
+    }
+    return defaults
+  }, [])
 
   useEffect(() => {
     document.body.classList.toggle('loading', !ready)

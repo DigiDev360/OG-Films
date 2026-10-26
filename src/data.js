@@ -2,9 +2,18 @@ import { gen } from './gen.js'
 
 // Your details. Change these first.
 export const CFG = {
-  name: 'Ira Kapoor',
-  email: 'hello@irakapoor.com',
+  name: 'OG FILMS',
+  email: 'hello@ogfilms.com',
 }
+
+// Custom images for the top Hero slideshow.
+// Add image paths here (e.g. ['/photos/hero-1.jpg', '/photos/hero-2.jpg']).
+// If left empty, it will automatically use frames from your projects.
+export const HERO_IMAGES = [
+  '/photos/hero-1.jpg',
+  { src: '/photos/hero-2.jpg', position: 'center 65%' },
+  { src: '/photos/hero-3.jpg', position: 'center 50%' },
+]
 
 // Your projects. `n` is the number of frames shown on the project page.
 // To use real photos, add a `frames` array of image URLs (e.g. files in /public):
@@ -17,12 +26,15 @@ export const PROJECTS = [
     cat: 'Landscape',
     year: 2026,
     place: 'Open country',
-    n: 5,
-    kind: 'ridge',
-    pal: ['#f3e3c6', '#e8a483', '#fff3d6', '#b3342b', '#5a0f10'],
-    blurb:
-      'Six weeks of walking a river that only exists for a few months of the year. The frames follow the light as it leaves the valley each evening.',
+    n: 3, // Set this to the number of photos in frames
+    frames: [
+      '/photos/dry-season-1.jpg',
+      '/photos/dry-season-2.jpg',
+      '/photos/dry-season-3.jpg'
+    ],
+    blurb: 'Six weeks of walking a river...'
   },
+
   {
     id: 'low-tide',
     title: 'Low Tide',
@@ -30,6 +42,11 @@ export const PROJECTS = [
     year: 2026,
     place: 'Northern shoreline',
     n: 4,
+    frames: [
+      '/photos/low-tide-1.jpg',
+      '/photos/low-tide-2.jpg',
+      '/photos/low-tide-3.jpg'
+    ],
     kind: 'sea',
     pal: ['#efe0c4', '#e9b9a0', '#fff6e0', '#c2483a', '#7a1a18'],
     blurb:
@@ -42,6 +59,11 @@ export const PROJECTS = [
     year: 2025,
     place: 'Private homes',
     n: 4,
+    frames: [
+      '/photos/quiet-rooms-1.jpg',
+      '/photos/quiet-rooms-2.jpg',
+      '/photos/quiet-rooms-3.jpg'
+    ],
     kind: 'room',
     pal: ['#ecdcc0', '#d9bea0', '#fff3d2', '#8a2a22', '#5c1512'],
     blurb:
@@ -53,7 +75,12 @@ export const PROJECTS = [
     cat: 'Landscape',
     year: 2025,
     place: 'High ridgelines',
-    n: 5,
+    n: 3,
+    frames: [
+      '/photos/red-hour-1.jpg',
+      '/photos/red-hour-2.jpg',
+      '/photos/red-hour-3.jpg'
+    ],
     kind: 'ridge',
     pal: ['#7a1316', '#e7745a', '#ffe9c8', '#8f1f1d', '#3d0809'],
     blurb:
@@ -66,6 +93,11 @@ export const PROJECTS = [
     year: 2024,
     place: 'Southern coast',
     n: 4,
+    frames: [
+      '/photos/monsoon-light-1.jpg',
+      '/photos/monsoon-light-2.jpg',
+      '/photos/monsoon-light-3.jpg'
+    ],
     kind: 'sea',
     pal: ['#c8392c', '#f0c8a6', '#fff0d0', '#8e211c', '#4a0d0c'],
     blurb:
@@ -78,6 +110,11 @@ export const PROJECTS = [
     year: 2024,
     place: 'Farmland',
     n: 4,
+    frames: [
+      '/photos/field-notes-1.jpg',
+      '/photos/field-notes-2.jpg',
+      '/photos/field-notes-3.jpg',
+    ],
     kind: 'ridge',
     pal: ['#e8d3a8', '#f1b08a', '#fff4d4', '#c4452f', '#6a1612'],
     blurb:
