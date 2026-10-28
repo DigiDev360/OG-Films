@@ -5,6 +5,8 @@ import Header from './components/Header.jsx'
 import Menu from './components/Menu.jsx'
 import Hero from './components/Hero.jsx'
 import Work from './components/Work.jsx'
+import Editorial from './components/Editorial.jsx'
+import Press from './components/Press.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Project from './components/Project.jsx'
@@ -25,10 +27,7 @@ export default function App() {
       frameSrc(PROJECTS[3], 1, 1600, 900),
       frameSrc(PROJECTS[1], 2, 1600, 900),
     ]
-    if (HERO_IMAGES && HERO_IMAGES.length > 0) {
-      if (HERO_IMAGES.length >= defaults.length) return HERO_IMAGES
-      return defaults.map((def, i) => HERO_IMAGES[i] || def)
-    }
+    if (HERO_IMAGES && HERO_IMAGES.length > 0) return HERO_IMAGES
     return defaults
   }, [])
 
@@ -62,9 +61,11 @@ export default function App() {
       <Header menuOpen={menuOpen} onMenu={() => setMenuOpen(true)} onGo={go} />
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} onGo={go} />
 
-      <main id="top" style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 58px)' }}>
+      <main id="top">
         <Hero srcs={heroSrcs} />
         <Work thumbs={thumbs} onOpen={(index, rect) => setOpen({ index, rect })} />
+        <Editorial />
+        <Press />
         <About />
         <Contact />
       </main>

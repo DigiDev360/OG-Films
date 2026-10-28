@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react'
 // and the image preview that follows the pointer over list rows.
 export default function Cursor({ thumbs, projectOpen }) {
   const dot = useRef(null)
-  const label = useRef(null)
   const peek = useRef(null)
   const peekImg = useRef(null)
   const blocked = useRef(false)
@@ -24,14 +23,6 @@ export default function Cursor({ thumbs, projectOpen }) {
       tx = e.clientX
       ty = e.clientY
       dot.current.classList.add('show')
-      const t = e.target.closest && e.target.closest('[data-cursor]')
-      const text = t ? t.getAttribute('data-cursor') : ''
-      if (text) {
-        label.current.textContent = text
-        dot.current.classList.add('big')
-      } else {
-        dot.current.classList.remove('big')
-      }
       const row = e.target.closest && e.target.closest('.row')
       if (row && !blocked.current) {
         peekImg.current.src = thumbs[+row.getAttribute('data-i')]
@@ -67,9 +58,7 @@ export default function Cursor({ thumbs, projectOpen }) {
 
   return (
     <>
-      <div className="cur" ref={dot} aria-hidden="true">
-        <span ref={label}></span>
-      </div>
+      <div className="cur" ref={dot} aria-hidden="true" />
       <div className="peek" ref={peek} aria-hidden="true">
         <img ref={peekImg} alt="" />
       </div>

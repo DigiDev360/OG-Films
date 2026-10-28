@@ -103,7 +103,7 @@ export default function Project({ index, rect, onClose, onGo }) {
 
   return (
     <div className={'proj' + (shown ? ' shown' : '')} ref={root} role="dialog" aria-modal="true" aria-label={p.title}>
-      <button className="proj-x mono" data-cursor="Close" onClick={close}>
+      <button className="proj-x mono" onClick={close}>
         Close
       </button>
       <div className="proj-in wrap">
@@ -145,7 +145,7 @@ export default function Project({ index, rect, onClose, onGo }) {
             </figure>
           ))}
         </div>
-        <a className="next" href="#" data-cursor="Next" onClick={goNext}>
+        <a className="next" href="#" onClick={goNext}>
           <span className="mono">Next project</span>
           <b>{PROJECTS[next].title}</b>
         </a>
